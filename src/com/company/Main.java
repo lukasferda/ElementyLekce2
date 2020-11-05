@@ -23,9 +23,6 @@ public class Main {
             //search box element
             WebElement element = browser.findElement(By.id("searchField"));
 
-            Thread.sleep(2000);
-
-
         } catch (Exception ex) {
             // catch blok slouzi ke zpracovani vyjimky, v nasem pripade nechame vyjimku byt
             System.out.println("Bohuzel doslo k chybe. Jedna z poslednich informaci by mel byt: (Main.java:**cislo radku kde chyba vznikla**) ");
