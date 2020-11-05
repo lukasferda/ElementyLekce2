@@ -21,7 +21,7 @@ public class Main {
             browser.navigate().to("http://czechitas-shopizer.azurewebsites.net/shop/");
 
             //search box element
-            WebElement element = browser.findElement(By.id("qqqqqqq"));
+            WebElement element = browser.findElement(By.id("searchField"));
 
             Thread.sleep(2000);
 
