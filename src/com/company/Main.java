@@ -20,14 +20,16 @@ public class Main {
             // do toho bloku piste kod
             browser.navigate().to("http://czechitas-shopizer.azurewebsites.net/shop/");
 
-            //search box element
-            WebElement searchBox = browser.findElement(By.className("typeahead tt-input"));
+            // řešení cvčení 2
 
-            // vrati hodnotu atributu id a ulozi ji do promene idValue
-            String idValue = searchBox.getAttribute("id");
+            // jedna z možností jak najít pole pro hlednání, je className
+            WebElement searchBox = browser.findElement(By.className("tt-input"));
+            searchBox.sendKeys("ahoj"); //vypsání ahoj do pole
 
-            // zapise do searchboxu string "ahoj"
-            searchBox.sendKeys("ahoj");
+            Thread.sleep(2000);
+
+            WebElement searchButton = browser.findElement(By.className("searchButton"));
+            searchButton.click();
 
             Thread.sleep(5000);
 
@@ -43,3 +45,12 @@ public class Main {
         }
     }
 }
+
+/* v této zakomentované části je další kód z minulého cvičení, doporučuji si jej vyzkoušet nakopírováním do try bloku výše
+
+            //xpath je v tomto případě sice složitá ale slouží k ukázce jak lze kombinovat různé attributy web elementu pro jeho hledání
+            WebElement searchBox2 = browser.findElement(By.xpath("//*[@autocomplete=\"off\" and @spellcheck=\"false\" and @dir=\"auto\"]"));
+            // vrati hodnotu atributu id a ulozi ji do promene
+            String idValue = searchBox2.getAttribute("id");
+            System.out.println("Řešení třetího cvičení je hodnota id, ktere lze taky použít pro hledání tohoto elementu: " + idValue);
+ */
